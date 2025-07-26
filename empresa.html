@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de la Empresa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            background-color: #FFFFFF;
+            color: #2E3D45;
+            padding-top: 65px;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 65px;
+            background-color: #2E3D45;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 999;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            height: 60px;
+        }
+
+        .menu-toggle {
+            font-size: 2rem;
+            background: none;
+            border: 2px solid #4FC3F7;
+            color: #4FC3F7;
+            cursor: pointer;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-weight: 500;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 65px;
+            right: 20px;
+            background-color: #f0f4fb;
+            width: 220px;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .menu.show {
+            display: block;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu ul li a {
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+            color: #103c71;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu ul li a:hover {
+            background-color: #dce6f5;
+            color: #072b53;
+        }
+
+        .section {
+            width: 100%;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section:nth-child(even) {
+            background-color: #f5fafd;
+        }
+
+        .section:nth-child(odd) {
+            background-color: #E1F5FE;
+        }
+
+        .section h2 {
+            font-weight: 700;
+            color: #0288D1;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section p {
+            max-width: 800px;
+            text-align: center;
+            font-weight: 400;
+            font-size: 1.1rem;
+            padding: 0 10px;
+        }
+
+        .valores-lista {
+            max-width: 900px;
+            padding: 0 20px;
+            list-style-type: none;
+            color: #000000;
+        }
+
+        .valores-lista li {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .valores-lista li strong {
+            color: #000000;
+            font-weight: 700;
+        }
+
+        .section#mision {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section#vision {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section#valores {
+            position: relative;
+            overflow: hidden;
+        }
+        .section#terminos {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .iconos-revueltos {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .iconos-revueltos .icon {
+            position: absolute;
+            width: 125px;
+            height: 125px;
+            transform: rotate(var(--rot, 0deg)) scale(1);
+        }
+
+        /* Posiciones dispersas manuales */
+        .icon1 {
+            top: 5%;
+            left: 5%;
+            --rot: -20deg;
+        }
+
+        .icon2 {
+            top: 70%;
+            left: 80%;
+            --rot: 20deg;
+        }
+
+        .icon3 {
+            top: 12%;
+            left: 30%;
+            --rot: -10deg;
+        }
+
+        .icon4 {
+            top: 5%;
+            left: 60%;
+            --rot: -20deg;
+        }
+
+        .icon5 {
+            top: 60%;
+            left: 10%;
+            --rot: 0deg;
+        }
+
+        .icon6 {
+            top: 20%;
+            left: 75%;
+            --rot: 8deg;
+        }
+
+        .icon7 {
+            top: 85%;
+            left: 40%;
+            --rot: -5deg;
+        }
+
+        .icon8 {
+            top: 50%;
+            left: 85%;
+            --rot: -5deg;
+        }
+
+        .icon9 {
+            top: 5%;
+            left: 30%;
+            --rot: -10deg;
+        }
+
+        .legal-list {
+            list-style-type: disc;
+            max-width: 900px;
+            padding-left: 20px;
+            margin: 20px auto;
+            color: #2E3D45;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0288D1;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section em {
+            color: #103c71;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <img src="images/Logo_negro_Letras_blancas.png" alt="Logo">
+        </a>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav class="menu" id="menu">
+            <ul>
+                <li><a href="#mision">Misión</a></li>
+                <li><a href="#vision">Visión</a></li>
+                <li><a href="#valores">Valores</a></li>
+                <li><a href="#terminos">Terminos y Condiciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section" id="mision">
+            <h2>Misión</h2>
+
+            <!-- Íconos decorativos distribuidos -->
+            <div class="iconos-revueltos">
+                <img src="images/Lentes_negro.png" class="icon icon1">
+                <img src="images/Garabato_negro.png" class="icon icon2">
+                <img src="images/Lapiz_negro.png" class="icon icon3">
+                <img src="images/Linea_negro.png" class="icon icon4">
+                <img src="images/Nube_negro.png" class="icon icon5">
+                <img src="images/Compu_negro.png" class="icon icon6">
+                <img src="images/Clip_negro.png" class="icon icon7">
+            </div>
+            <p style="color: #000000;">Ofrecer una plataforma de e-commerce especializada en apuntes y recursos
+                académicos digitales, que permita a estudiantes universitarios optimizar sus
+                materiales de estudio de forma fácil, segura y eficiente. Nos enfocamos en generar valor tanto
+                para quienes crean contenido como para quienes lo consumen, fomentando una economía del
+                conocimiento justa, accesible y orientada al éxito académico.</p>
+        </section>
+
+        <section class="section" id="vision">
+            <h2>Visión</h2>
+            <div class="iconos-revueltos">
+                <img src="images/Lentes_negro.png" class="icon icon6">
+                <img src="images/Garabato_negro.png" class="icon icon4">
+                <img src="images/Lapiz_negro.png" class="icon icon5">
+                <img src="images/Linea_negro.png" class="icon icon7">
+                <img src="images/Nube_negro.png" class="icon icon2">
+                <img src="images/Compu_negro.png" class="icon icon3">
+                <img src="images/Clip_negro.png" class="icon icon1">
+            </div>
+            <p style="color: #000000;">Ser la plataforma líder en habla hispana para obtención de
+                recursos académicos digitales, construyendo una comunidad universitaria donde el
+                conocimiento sea accesible, colaborativo y justamente valorado. Aspiramos a transformar la forma
+                en que las personas estudian, comparten y reconocen el esfuerzo académico.</p>
+        </section>
+
+        <section class="section" id="valores">
+            <h2>Valores</h2>
+            <div class="iconos-revueltos">
+                <img src="images/Lentes_negro.png" class="icon icon1">
+                <img src="images/Garabato_negro.png" class="icon icon7">
+                <img src="images/Lapiz_negro.png" class="icon icon2">
+                <img src="images/Linea_negro.png" class="icon icon8">
+                <img src="images/Nube_negro.png" class="icon icon5">
+                <img src="images/Compu_negro.png" class="icon icon6">
+                <img src="images/Clip_negro.png" class="icon icon9">
+            </div>
+            <ul class="valores-lista">
+                <li><strong>Colaboración:</strong> Creemos en el poder del trabajo en equipo y la cooperación entre
+                    estudiantes para construir una comunidad académica sólida.</li>
+                <li><strong>Accesibilidad:</strong> Nos esforzamos por hacer que el conocimiento esté al alcance de
+                    todos, sin importar su contexto o recursos.</li>
+                <li><strong>Responsabilidad:</strong> Promovemos el uso ético y legal del contenido académico,
+                    respetando los derechos de autor y la integridad educativa.</li>
+                <li><strong>Innovación:</strong> Buscamos mejorar continuamente nuestra plataforma para ofrecer
+                    soluciones prácticas, tecnológicas y relevantes.</li>
+                <li><strong>Justicia Académica:</strong> Fomentamos un sistema donde tanto quienes crean como quienes
+                    usan los recursos reciban el valor que merecen.</li>
+                <li><strong>Compromiso con el aprendizaje:</strong> Apoyamos el desarrollo académico continuo y
+                    significativo de nuestros usuarios.</li>
+            </ul>
+        </section>
+
+        <section class="section" id="terminos">
+            <h2>Términos y Condiciones</h2>
+    
+
+            <h3>AVISO DE PRIVACIDAD – HILOTECA</h3>
+            <p>
+                En cumplimiento de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares,
+                Hiloteca informa que los datos personales que usted proporcione serán utilizados exclusivamente para las
+                siguientes finalidades:
+            </p>
+            <ul class="legal-list">
+                <li>Crear y administrar su cuenta de usuario</li>
+                <li>Procesar compras y descargas de apuntes</li>
+                <li>Enviar notificaciones, promociones o actualizaciones relevantes</li>
+                <li>Emitir comprobantes de pago (facturación digital)</li>
+            </ul>
+
+            <p><strong>Datos personales solicitados:</strong></p>
+            <ul class="legal-list">
+                <li>Nombre completo</li>
+                <li>Correo electrónico</li>
+                <li>Carrera y universidad (opcional)</li>
+                <li>Información de pago</li>
+            </ul>
+
+            <p><strong>Derechos ARCO:</strong> Usted tiene derecho de Acceso, Rectificación, Cancelación u Oposición
+                respecto a sus datos personales. Puede ejercer estos derechos enviando un correo a:
+                <em>hiloteca@gmail.com</em></p>
+
+            <p><strong>Transferencia de datos:</strong> No compartimos su información con terceros sin su
+                consentimiento.</p>
+
+            <p><strong>Modificaciones:</strong> Este aviso puede ser modificado; cualquier cambio será publicado en:
+                <em>www.hiloteca.com</em></p>
+
+            <p><strong>Fecha de última actualización:</strong> 22 de julio de 2025.</p>
+
+            <h3>TÉRMINOS Y CONDICIONES DE HILOTECA</h3>
+
+            <p><strong>Bienvenido a Hiloteca.</strong> Al utilizar nuestra plataforma, usted acepta los siguientes
+                términos:</p>
+
+            <ul class="legal-list">
+                <li><strong>Compra y descarga de apuntes:</strong> Los materiales disponibles son de acceso inmediato
+                    una vez confirmado el pago. La calidad y utilidad de los apuntes puede variar, ya que son elaborados
+                    por estudiantes colaboradores.</li>
+
+                <li><strong>Pagos:</strong> Aceptamos pagos mediante tarjeta de crédito/débito, PayPal y transferencias.
+                    Todos los precios están expresados en pesos mexicanos e incluyen impuestos.</li>
+
+                <li><strong>Reembolsos:</strong> No se realizan reembolsos una vez que el contenido digital ha sido
+                    descargado, salvo en casos de errores técnicos imputables a la plataforma.</li>
+
+                <li><strong>Responsabilidad:</strong> Hiloteca no garantiza la veracidad absoluta del contenido ni su
+                    equivalencia con los planes de estudio oficiales. El uso de los materiales es bajo responsabilidad
+                    del usuario.</li>
+
+                <li><strong>Privacidad:</strong> Su información está protegida conforme a nuestro Aviso de Privacidad.
+                </li>
+
+                <li><strong>Jurisdicción:</strong> Estos términos se rigen por las leyes mexicanas. Cualquier
+                    controversia será atendida por tribunales en Ciudad de México.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+
+        document.addEventListener('click', function (event) {
+            const menu = document.getElementById('menu');
+            const toggleButton = document.querySelector('.menu-toggle');
+
+            if (menu.classList.contains('show') &&
+                !menu.contains(event.target) &&
+                !toggleButton.contains(event.target)) {
+                menu.classList.remove('show');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<style>
+		body { font-family: Poppins, sans-serif; background: #eef2f7; padding: 2em; }
+		form { background: white; padding: 2em; max-width: 400px; margin: auto; border-radius: 8px; box-shadow: 0 0 10px #ccc; }
+		label, input { display: block; width: 100%; margin-bottom: 1em; }
+		input { padding: 0.5em; border: 1px solid #ccc; border-radius: 4px; }
+		button { padding: 0.8em; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; }
+		.enlace-registro { text-align: center; margin-top: 1em; font-size: 0.9em; }
+		.enlace-registro a { color: #007bff; text-decoration: none; }
+		.enlace-registro a:hover { text-decoration: underline; }
+	</style>
+</head>
+<body>
+	<h2>Iniciar sesión</h2>
+	<form id="loginForm">
+		<label for="email">Correo:</label>
+		<input type="email" id="email" required>
+
+		<label for="password">Contraseña:</label>
+		<input type="password" id="password" required>
+
+		<button type="submit">Entrar</button>
+		<div class="enlace-registro">
+			¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a>
+		</div>
+	</form>
+
+	<script>
+		document.getElementById('loginForm').addEventListener('submit', function(e) {
+			e.preventDefault();
+			const email = document.getElementById('email').value;
+			const password = document.getElementById('password').value;
+
+			const guardadoEmail = localStorage.getItem('usuario_email');
+			const guardadoPass = localStorage.getItem('usuario_pass');
+
+			if (email === guardadoEmail && password === guardadoPass) {
+				alert("🎉 ¡Bienvenido!");
+				window.location.href = 'https://edu-hiloteca2.odoo.com/'; // página destino tras login
+			} else {
+				alert("❌ Correo o contraseña incorrectos.");
+			}
+		});
+	</script>
+</body>
+</html>

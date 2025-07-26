@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cómo Usar la Plataforma</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: 'Poppins', sans-serif;
+			font-weight: 400;
+			background-color: #FFFFFF;
+			color: #2E3D45;
+			padding-top: 65px;
+		}
+
+		/* Navbar fija */
+		.navbar {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 65px;
+			background-color: #2E3D45;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 20px;
+			z-index: 999;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		}
+
+		.logo img {
+			height: 60px;
+		}
+
+		.menu-toggle {
+			font-size: 2rem;
+			background: none;
+			border: 2px solid #4FC3F7;
+			color: #4FC3F7;
+			cursor: pointer;
+			border-radius: 6px;
+			padding: 6px 12px;
+			font-weight: 500;
+		}
+
+		.menu {
+			display: none;
+			position: absolute;
+			top: 65px;
+			right: 20px;
+			background-color: #f0f4fb;
+			width: 220px;
+			z-index: 1000;
+			box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+			border-radius: 8px;
+		}
+
+		.menu.show {
+			display: block;
+		}
+
+		.menu ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.menu ul li a {
+			display: block;
+			padding: 12px;
+			text-decoration: none;
+			color: #103c71;
+			font-weight: 500;
+			transition: background-color 0.3s ease;
+		}
+
+		.menu ul li a:hover {
+			background-color: #dce6f5;
+			color: #072b53;
+		}
+
+		main {
+			width: 100%;
+		}
+
+		.intro {
+			text-align: center;
+			padding: 60px 20px;
+			background-color: #E1F5FE;
+		}
+
+		.intro h1 {
+			font-weight: 700;
+			font-size: 2rem;
+			color: #0288D1;
+			margin-bottom: 20px;
+		}
+
+		.intro p {
+			font-weight: 400;
+			font-size: 1.1rem;
+		}
+
+		.infografias {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 40px;
+			padding: 60px 20px;
+			background-color: #f5fafd;
+		}
+
+		.card {
+			width: 400px;
+			background-color: #FFFFFF;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+			overflow: hidden;
+			text-align: center;
+		}
+
+		.card img {
+			width: 100%;
+			height: auto;
+		}
+
+		.card p {
+			padding: 20px;
+			font-weight: 400;
+			font-size: 1rem;
+		}
+
+		.videos {
+			text-align: center;
+			padding: 60px 20px;
+			background-color: #E1F5FE;
+		}
+
+		.videos h2 {
+			font-weight: 700;
+			font-size: 1.5rem;
+			color: #0288D1;
+			margin-bottom: 16px;
+		}
+
+		.videos p {
+			font-weight: 400;
+			font-size: 1rem;
+		}
+	</style>
+</head>
+<body>
+
+	<header class="navbar">
+		<a href="index.html" class="logo">
+			<img src="images/Logo_negro_Letras_blancas.png" alt="Logo">
+		</a>
+		<button class="menu-toggle" onclick="toggleMenu()">☰</button>
+		<nav class="menu" id="menu">
+			<ul>
+				<li><a href="#infografias">Infografías</a></li>
+				<li><a href="#videos">Videos</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section class="intro">
+			<h1>Cómo usar la plataforma</h1>
+			<p>Aprende paso a paso cómo sacarle provecho a todas sus funciones.</p>
+		</section>
+
+		<section class="infografias" id="infografias">
+			<div class="card">
+				<img src="images/infografia1.jpg" alt="Infografía 1">
+				<p>Infografía que explica el funcionamiento de Hiloteca en 5 pasos: 
+                    crea tu cuenta, comparte tus apuntes, mejora su presentación, 
+                    encuentra material de calidad y forma alianzas dentro de una red de 
+                    estudiantes que se apoyan entre sí.</p>
+			</div>
+			<div class="card">
+				<img src="images/infografia2.jpg" alt="Infografía 2">
+				<p>Infografía que muestra cómo digitalizar tus apuntes en Hiloteca: 
+					toma foto o escanea tus notas, súbelas con una portada y descripción, 
+					y comparte contenido útil con otros estudiantes. ¡Lo que ya hiciste puede 
+					ser clave para alguien más!</p>
+			</div>
+		</section>
+
+		<section class="videos" id="videos">
+			<h2>Guía en video</h2>
+			<p>Próximamente podrás ver aquí el paso a paso en formato audiovisual.</p>
+			<!-- Aquí puedes insertar un iframe de YouTube -->
+			<!-- <iframe width="560" height="315" src="URL_DEL_VIDEO" frameborder="0" allowfullscreen></iframe> -->
+		</section>
+	</main>
+
+	<script>
+		function toggleMenu() {
+			const menu = document.getElementById('menu');
+			menu.classList.toggle('show');
+		}
+
+		document.addEventListener('click', function(event) {
+			const menu = document.getElementById('menu');
+			const toggleButton = document.querySelector('.menu-toggle');
+
+			if (menu.classList.contains('show') &&
+				!menu.contains(event.target) &&
+				!toggleButton.contains(event.target)) {
+				menu.classList.remove('show');
+			}
+		});
+	</script>
+
+</body>
+</html>

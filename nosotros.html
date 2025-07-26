@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de Nosotros</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #FFFFFF;
+	color: #2E3D45;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400; /* Regular para textos generales */
+	line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 65px;
+	display: flex;
+	background-color: #2E3D45;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	
+}
+
+.logo img {
+	height: 50px;
+}
+
+.menu-toggle {
+	font-size: 2rem;
+	background: none;
+	border: 2px solid #4FC3F7;
+	color: #4FC3F7;
+	cursor: pointer;
+	border-radius: 6px;
+	padding: 6px 12px;
+	font-weight: 500; /* Medium para botones */
+}
+
+.menu {
+	display: none;
+	position: absolute;
+	top: 60px;
+	right: 20px;
+	background-color: #FFFFFF;
+	width: 200px;
+	z-index: 1000;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+}
+
+.menu.show {
+	display: block;
+}
+
+.menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menu ul li a {
+	display: block;
+	padding: 12px;
+	text-decoration: none;
+	color: #2E3D45;
+	font-weight: 500; /* Medium para ítems de menú */
+	transition: background-color 0.3s, color 0.3s;
+}
+
+.menu ul li a:hover {
+	background-color: #E1F5FE;
+	color: #0288D1;
+}
+
+/* Secciones de personas */
+.section {
+	display: flex;
+	width: 100%;
+	min-height: 100vh;
+	align-items: center;
+	padding: 0;
+}
+
+.section:nth-child(even) {
+	flex-direction: row-reverse;
+	background-color: #f5fafd;
+}
+
+.section:nth-child(odd) {
+	background-color: #E1F5FE;
+}
+
+.section img {
+	width: 50%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.section-text {
+	width: 50%;
+	padding: 60px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.section-text h3 {
+	color: #0288D1;
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 16px;
+}
+
+.section-text p {
+	font-weight: 400;
+	font-size: 1.2rem;
+	line-height: 1.8;
+}
+
+/* Botón extra o llamadas de atención */
+button.cta {
+	background-color: #0288D1;
+	color: #FFFFFF;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 6px;
+	font-weight: 500; /* Medium para botones */
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+button.cta:hover {
+	background-color: #4FC3F7;
+}
+
+/* Líneas divisoras suaves */
+.divider {
+	border-top: 1px solid #C7C9D3;
+	margin: 40px 0;
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <img src="images/Logo_negro_Letras_blancas.png" alt="Logo">
+        </a>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav class="menu" id="menu">
+            <ul>
+                <li><a href="#Melissa">Melissa</a></li>
+                <li><a href="#Maricruz">Maricruz</a></li>
+                <li><a href="#Axel">Axel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Secciones -->
+    <section class="section" id="Melissa">
+        <img src="images/Melissa.jpg" alt="Melissa">
+        <div class="section-text">
+            <h3>Claudia Melissa Manzano Luna</h3>
+            <p style="color: #000000;">Soy estudiante de Ingeniería en Tecnologías de la Información y Comunicaciones,
+			me caracterizo por ser responsable, proactiva y comprometida con mi formación. Cuento con habilidades en el 
+			trabajo en equipo, pensamiento lógico y adaptabilidad a nuevas tecnologías.</p>
+        </div>
+    </section>
+
+    <section class="section" id="Maricruz">
+        <img src="images/Maricruz.jpg" alt="Maricruz">
+        <div class="section-text">
+            <h3>Maricruz Pineda Lara</h3>
+            <p style="color: #000000;">Como estudiante en TICS, creo que compartir conocimientos entre estudiantes 
+			hace el camino más fácil para todos. Si a mí me sirvieron, seguro también pueden ayudarte a ti. 
+			Aquí estudiamos juntos, no solos.</p>
+        </div>
+    </section>
+
+    <section class="section" id="Axel">
+        <img src="images/Axel.jpg" alt="Axel">
+        <div class="section-text">
+            <h3>Axel Llnaderal Arteaga</h3>
+            <p style="color: #000000;">Soy un estudiante universitario y me gusta pensar en soluciones creativas para problemas reales.
+				Así pudiendo ayudar a nuestra comunidad facilitándoles  la etapa universitaria.
+				Esta plataforma es nuestra forma de apoyar a miles de estudiantes que buscan aprender mejor.</p>
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+
+        // Cierra el menú al hacer clic fuera de él
+        document.addEventListener('click', function (event) {
+            const menu = document.getElementById('menu');
+            const toggleButton = document.querySelector('.menu-toggle');
+
+            // Si el menú está abierto y el clic no fue en el botón ni dentro del menú, se cierra
+            if (menu.classList.contains('show') &&
+                !menu.contains(event.target) &&
+                !toggleButton.contains(event.target)) {
+                menu.classList.remove('show');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
